@@ -1,20 +1,12 @@
-//Import dependencies
 import React, { Component } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  TextInput,
-  ScrollView,
-  TouchableOpacity
-} from "react-native";
+import { StyleSheet,View,TextInput,Text, TouchableOpacity, ScrollView } from "react-native";
 import { Font } from 'expo';
 import Memo from "./Memo";
 
 export default class Home extends Component {
   state = {
-    noteArray: [],
-    noteText: ""
+    memoList: [],
+    memoVal: ""
   };
   
 
@@ -34,24 +26,24 @@ export default class Home extends Component {
     this.setState({ fontLoaded: true });
   }*/
 
-  addNote = e => {
-    if (this.state.noteText) {
+  addMemo = e => {
+    if (this.state.memoVal) {
       let d = new Date();
-      const newNote = {
+      const newMemo = {
         date: d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate(),
-        note: this.state.noteText
+        memo: this.state.memoVal
       };
       this.setState({
-        noteArray: [...this.state.noteArray, newNote],
-        noteText: ""
+        memoList: [...this.state.memoList, newMemo],
+        memoVal: ""
       });
     }
   
   };
 
-  deleteNote = key => {
-      this.state.noteArray.splice(key,1);
-      this.setState({noteArray: this.state.noteArray });
+  deleteMemo = key => {
+      this.setState({memoList:
+      this.state.memoList.splice(key,1)});
 
   }
 
@@ -59,9 +51,9 @@ export default class Home extends Component {
 
   render() {
     
-    let notes = this.state.noteArray.map((val, id) => {
+    let memos = this.state.memoList.map((val, id) => {
       return (
-        <Memo key={id} val={val} deleteMethod={() => this.deleteNote(key)} />
+        <Memo key={id} val={val} deleteMethod={() => this.deleteMemo(key)} />
       );
     });
 
@@ -71,21 +63,21 @@ export default class Home extends Component {
           <Text style={styles.headerText}> My Memo</Text>
         </View>
 
-        <ScrollView style={styles.scrollConatiner}>{notes}</ScrollView>
+        <ScrollView style={styles.scrollContainer}>{memos}</ScrollView>
 
         <View style={styles.footer}>
           <TextInput
             style={styles.textInput}
-            onChangeText={noteText => this.setState({ noteText })}
-            value={this.state.noteText}
+            onChangeText={memoVal => this.setState({ memoVal })}
+            value={this.state.memoVal}
             placeholder="Click here to write ..."
             placeholderTextColor="white"
             underlineColorAndroid="transparent"
           />
         </View>
 
-        <TouchableOpacity style={styles.addButton} onPress={this.addNote}>
-          <Text style={styles.addButtonText}>Add me!</Text>
+        <TouchableOpacity style={styles.button} onPress={this.addMemo}>
+          <Text style={styles.buttonText}>Add me!</Text>
         </TouchableOpacity>
       </View>
 
@@ -133,7 +125,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     borderTopColor: "#ededed"
   },
-  addButton: {
+  button: {
     position: "absolute",
     zIndex: 11,
     right: 20,
@@ -146,7 +138,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     elevation: 8
   },
-  addButtonText: {
+  buttonText: {
     color: "#b2908c",
     fontSize: 20
   }

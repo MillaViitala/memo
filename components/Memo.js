@@ -4,15 +4,15 @@ import {StyleSheet,View,Text,TouchableOpacity} from "react-native";
 export default class Memo extends Component {
   render() {
     return (
-      <View style={styles.note}>
-        <Text style={styles.noteDate}>{this.props.val.date}</Text>
-        <Text style={styles.noteText}>{this.props.val.note}</Text>
+      <View style={styles.memo}>
+        <Text style={styles.memoDate}>{this.props.val.date}</Text>
+        <Text style={styles.memoText}>{this.props.val.memo}</Text>
 
         <TouchableOpacity
           onPress={this.props.deleteHandler}
-          style={styles.noteDelete}
+          style={styles.memoDelete}
         >
-          <Text style={styles.noteDeleteText}>
+          <Text style={styles.memoTextDelete}>
               Delete
               </Text>
         </TouchableOpacity>
@@ -22,19 +22,19 @@ export default class Memo extends Component {
 }
 
 const styles = StyleSheet.create({
-  note: {
+  memo: {
     position: "relative",
     padding: 20,
     paddingRight: 100,
     borderBottomWidth: 2,
     borderBottomColor: "#ededed"
   },
-  noteText: {
+  memoText: {
     paddingLeft: 20,
     borderLeftWidth: 10,
     borderLeftColor: "#7ab295"
   },
-  noteDelete: {
+  memoDelete: {
     position: "absolute",
     justifyContent: "center",
     alignItems: "center",
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     bottom: 10,
     right: 10
   },
-  noteDeleteText: {
+  memoTextDelete: {
     color: "white"
   }
 });
