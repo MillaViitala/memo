@@ -9,7 +9,7 @@ export default class Memo extends Component {
         <Text style={styles.memoText}>{this.props.val.memo}</Text>
 
         <TouchableOpacity
-          onPress={this.props.deleteHandler}
+          onPress={this.props.deleteMethod}
           style={styles.memoDelete}
         >
           <Text style={styles.memoTextDelete}>

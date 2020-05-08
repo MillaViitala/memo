@@ -41,9 +41,10 @@ export default class Home extends Component {
   
   };
 
-  deleteMemo = key => {
-      this.setState({memoList:
-      this.state.memoList.splice(key,1)});
+  deleteMemo = id => {
+
+      const newmemos = this.state.memoList.filter((memo,index) => index!==id)
+      this.setState({memoList: newmemos});
 
   }
 
@@ -53,7 +54,7 @@ export default class Home extends Component {
     
     let memos = this.state.memoList.map((val, id) => {
       return (
-        <Memo key={id} val={val} deleteMethod={() => this.deleteMemo(key)} />
+        <Memo key={id} val={val} deleteMethod={() => this.deleteMemo(id)} />
       );
     });
 
