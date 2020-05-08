@@ -87,7 +87,7 @@ export default class Home extends Component {
 
 }
 
-//Stylesheet
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
