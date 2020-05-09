@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet,View,TextInput,Text, TouchableOpacity, ScrollView } from "react-native";
+import { StyleSheet,View,TextInput,Text, TouchableOpacity, ScrollView, Button } from "react-native";
 import { Font } from 'expo';
 import Memo from "./Memo";
 
@@ -51,6 +51,7 @@ export default class Home extends Component {
 
 
   render() {
+
     
     let memos = this.state.memoList.map((val, id) => {
       return (
@@ -62,6 +63,7 @@ export default class Home extends Component {
       <View style={styles.container}>
         <View style={styles.header}>
           <Text style={styles.headerText}> My Memo</Text>
+          <Button style={styles.randomButton} onPress={() => this.props.navigation.navigate('Random')} title= "Random"/>
         </View>
 
         <ScrollView style={styles.scrollContainer}>{memos}</ScrollView>
@@ -76,7 +78,6 @@ export default class Home extends Component {
             underlineColorAndroid="transparent"
           />
         </View>
-
         <TouchableOpacity style={styles.button} onPress={this.addMemo}>
           <Text style={styles.buttonText}>Add me!</Text>
         </TouchableOpacity>
@@ -142,5 +143,8 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "#b2908c",
     fontSize: 20
+  },
+  randomButton: {
+    backgroundColor: "#ffe4e1"
   }
 });
