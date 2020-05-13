@@ -63,7 +63,9 @@ export default class Home extends Component {
       <View style={styles.container}>
         <View style={styles.header}>
           <Text style={styles.headerText}> My Memo</Text>
-          <Button onPress={() => this.props.navigation.navigate('CalendarScreen')} title= "Calendar" color="#7ab295" borderRadius="15"/>
+          <TouchableOpacity style={styles.randomButton} onPress={() => this.props.navigation.navigate('CalendarScreen')}>
+          <Text style={styles.buttonText}>Calendar</Text>
+        </TouchableOpacity>
         </View>
 
         <ScrollView style={styles.scrollContainer}>{memos}</ScrollView>
@@ -108,7 +110,18 @@ const styles = StyleSheet.create({
     padding: 50
   },
   randomButton: {
-    backgroundColor: "#e1ffef"
+    position: "absolute",
+    zIndex: 11,
+    left: 20,
+    top: 100,
+    bottom: 10,
+    backgroundColor: "#e1ffef",
+    width: 100,
+    height: 100,
+    borderRadius: 59,
+    alignItems: "center",
+    justifyContent: "center",
+    elevation: 8
   },
   scrollContainer: {
     flex: 1,
