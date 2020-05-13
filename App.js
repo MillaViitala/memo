@@ -3,7 +3,7 @@ import React from 'react';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack'
 import Home from './components/Home';
-import Random from './components/Random';
+import CalendarScreen from './components/CalendarScreen';
 
 
 export default class App extends React.Component {
@@ -17,8 +17,8 @@ const AppNavigator = createStackNavigator({
   Home: {
     screen: Home
   },
-  Random: {
-    screen: Random
+  CalendarScreen: {
+    screen: CalendarScreen
   }
 
 });

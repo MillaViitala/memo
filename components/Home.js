@@ -63,7 +63,7 @@ export default class Home extends Component {
       <View style={styles.container}>
         <View style={styles.header}>
           <Text style={styles.headerText}> My Memo</Text>
-          <Button style={styles.randomButton} onPress={() => this.props.navigation.navigate('Random')} title= "Random"/>
+          <Button onPress={() => this.props.navigation.navigate('CalendarScreen')} title= "Calendar" color="#7ab295" borderRadius="15"/>
         </View>
 
         <ScrollView style={styles.scrollContainer}>{memos}</ScrollView>
@@ -107,6 +107,9 @@ const styles = StyleSheet.create({
     fontSize: 40,
     padding: 50
   },
+  randomButton: {
+    backgroundColor: "#e1ffef"
+  },
   scrollContainer: {
     flex: 1,
     marginBottom: 100
@@ -143,8 +146,5 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "#b2908c",
     fontSize: 20
-  },
-  randomButton: {
-    backgroundColor: "#ffe4e1"
   }
 });
