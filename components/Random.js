@@ -3,6 +3,7 @@ import { StyleSheet,View,TextInput,Text, TouchableOpacity, ScrollView } from "re
 
 export default class Random extends Component {
 
+
     render() {
 
         return(
